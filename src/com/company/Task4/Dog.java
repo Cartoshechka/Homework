@@ -36,11 +36,9 @@ public class Dog {
     }
 
 
-    public boolean equalsAge(Dog dog){
-        return Objects.equals(age, dog.age);
-    }
-    public boolean equalsWeight(Dog dog){
-        return Objects.equals(weight, dog.weight);
+
+    public boolean equals(Dog dog) {
+        return age == dog.age && weight == dog.weight;
     }
 
 }

@@ -15,7 +15,7 @@ public class DogSettings {
         dog2.setWeight(25);
         printDog(dog2);
 
-        if (dog1.equalsAge(dog2) && dog1.equalsWeight(dog2)){
+        if (dog1.equals(dog2)){
             System.out.println("equals in weight and age");
         } else {
             System.out.println("not equals in weight and age");

@@ -4,11 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class StringBuffer {
+public class StringBuffer1 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        java.lang.StringBuffer sum = new java.lang.StringBuffer();
+        StringBuffer sum = new StringBuffer();
         while (true){
             String stopWord = reader.readLine();
             if (stopWord.equals("хватит"))

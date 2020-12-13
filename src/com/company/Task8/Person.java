@@ -2,7 +2,7 @@ package com.company.Task8;
 
 public class Person {
 
-    private String name;
+    private final String name;
     Account account;
 
     Person(String name, String password) {
@@ -12,7 +12,7 @@ public class Person {
 
 
     public class Account {
-        private String password;
+        private final String password;
 
         Account(String password) {
             this.password = password;

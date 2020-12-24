@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Distance among points: " + Util.getDistance(24.7, 46.7, 83.5, 48.97));
+        System.out.println("Distance among points: " + Util.getDistance(24.7, 46.7, 83.5, 48.97 ));
 
     }
 

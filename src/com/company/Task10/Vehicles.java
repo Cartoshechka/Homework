@@ -1,9 +1,9 @@
 package com.company.Task10;
 
 public class Vehicles {
-    private String name;
-    private int passengers;
-    private int weight;
+    private final String name;
+    private final int passengers;
+    private final int weight;
 
 
     public Vehicles(int passengers, String name, int weight) {

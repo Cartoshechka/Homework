@@ -25,8 +25,8 @@ public class Plane extends Vehicles {
                 + ", fly=" + fly
                 + '}';
     }*/
-   private int carryng;
-   private int maxSpeed;
+   private final int carryng;
+   private final int maxSpeed;
 
     public Plane(int passengers, String name, int weight, int carryng, int maxSpeed){
         super(passengers, name, weight);

@@ -30,9 +30,9 @@ public class Train extends Vehicles {
                 +", speed=" + speed
                 + '}';
     }*/
-    private int railwayCarriage;
-    private String finalDestination;
-    private int maxSpeed;
+    private final int railwayCarriage;
+    private final String finalDestination;
+    private final int maxSpeed;
 
 
     public Train(int passengers, String name,String finalDestination, int weight, int railwayСarriage, int maxSpeed) {

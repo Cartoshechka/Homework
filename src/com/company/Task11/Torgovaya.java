@@ -1,10 +1,8 @@
 package com.company.Task11;
 
-public class Torgovaya {
+public class Torgovaya extends Proizvodstvo{
 
-    public int square;
-    public int tax;
-    public int viruchka;
+    private int viruchka;
 
     public void Calculate(int square, int viruchka, int tax){
 

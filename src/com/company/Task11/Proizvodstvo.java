@@ -1,12 +1,11 @@
 package com.company.Task11;
 
 public class Proizvodstvo {
-    public int square;
-    public int tax;
+    private int square;
+    private int tax;
 
-    public void Calc(int  square, int tax){
-        int oplata = square * tax;
-        System.out.println(oplata);
+    public int Calc(int tax, int square) {
+        return square * tax;
     }
 
 

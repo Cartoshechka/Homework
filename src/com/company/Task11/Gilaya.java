@@ -1,18 +1,16 @@
 package com.company.Task11;
 
-public class Gilaya {
+public class Gilaya extends Calc{
 
+    int subsidii;
 
     public Gilaya(int tax, int square, int subsidii) {
-        int res = tax * square;
-        int subs = res / 100 * subsidii;
-        int res2 = res - subs;
-        System.out.println("Налог с учётом субсидий составляет: " + res2);
-
-
-
+        super(tax, square);
+        int res = super.Calc(tax,square)-(super.Calc(tax,square) / 100 * subsidii);
+        System.out.println("Налог на вашу жилую площядь с учётом ваших субсидий составляет: " + res);
 
     }
+
 
 
 }

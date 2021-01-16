@@ -1,9 +1,10 @@
 package com.company.Task11;
 
-public class Proizvodstvo {
+public class Proizvodstvo extends Calc{
+
 
     public Proizvodstvo(int tax, int square) {
-       int res = tax * square;
-        System.out.println("Налог на ваше производство составляет: " + res);
+        super(tax, square);
+        System.out.println("Налог на ваше производство составляет: " + super.Calc(tax, square));
     }
 }

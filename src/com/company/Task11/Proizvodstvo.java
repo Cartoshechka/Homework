@@ -1,10 +1,12 @@
 package com.company.Task11;
 
-public class Proizvodstvo extends Calc{
+public class Proizvodstvo extends Constructor {
 
 
     public Proizvodstvo(int tax, int square) {
         super(tax, square);
-        System.out.println("Налог на ваше производство составляет: " + super.Calc(tax, square));
+        int res = tax * square;
+        System.out.println("Налог на производство составляет: " + res);
+
     }
 }

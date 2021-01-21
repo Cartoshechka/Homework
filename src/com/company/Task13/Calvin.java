@@ -5,10 +5,6 @@ import java.io.IOException;
 public class Calvin extends Celsium implements Converter {
 
 
-    public Calvin() {
-        super(0);
-    }
-
     public void convert() throws IOException {
         double cels = super.Celsium();
         double res = cels + 273.15;

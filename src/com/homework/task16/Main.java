@@ -23,8 +23,9 @@ public class Main {
         arrList.add(2, "petr ne 3");
         System.out.println(arrList.toString());
         System.out.println("--------------------------");
-        arrList.add(8,"petr88");
+        arrList.remove(2);
         System.out.println(arrList.toString());
+
 
 
     }

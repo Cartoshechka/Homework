@@ -52,10 +52,10 @@ public class MyLinkedList {
 
         return null;
     }*/
-    public String  get(int index) {
+   /* public String  get(int index) {
         checkElementIndex(index);
         return node(index).item;
-    }
+    }*/
     private void checkElementIndex(int index) {
         if (!isElementIndex(index))
             System.out.println("Out of Bound");

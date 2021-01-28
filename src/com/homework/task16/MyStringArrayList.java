@@ -1,18 +1,14 @@
 package com.homework.task16;
 
 
-import com.homework.task17.MyLinkedList;
-
-import java.util.Iterator;
-
 public class MyStringArrayList {
-    private static final int INIT_SIZE = 16;
-    private static Object[] array = new Object[INIT_SIZE];
-    private static int numOfBlocks = 0;
+    private  final int INIT_SIZE = 16;
+    private  Object[] array = new Object[INIT_SIZE];
+    private  int numOfBlocks = 0;
 
-    public void add(Object item) {
+    public void add(String item) {
         if (numOfBlocks == array.length - 1)
-            resize(array.length + 10);
+            resize(array.length*2);
         array[numOfBlocks++] = item;
     }
 
@@ -30,13 +26,13 @@ public class MyStringArrayList {
     }
 
 
-    public void set(int index, Object item) {
+    public void set(int index, String item) {
 
         array[index] = item;
     }
 
 
-    public static String get(int index) {
+    public String get(int index) {
         return (String) array[index];
     }
 
@@ -47,7 +43,7 @@ public class MyStringArrayList {
         numOfBlocks--;
     }
 
-    public static int size() {
+    public  int size() {
         return numOfBlocks;
     }
 
@@ -63,8 +59,8 @@ public class MyStringArrayList {
 
     public String toString() {
         String res = "Содержание списка: ";
-        for (int i = 0; i < MyStringArrayList.size(); i++) {
-            res += " " + MyStringArrayList.get(i) + ',' ;
+        for (int i = 0; i < size(); i++) {
+            res += " " + get(i) + ';' ;
         }
         return res;
     }

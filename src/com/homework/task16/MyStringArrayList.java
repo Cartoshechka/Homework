@@ -1,29 +1,36 @@
 package com.homework.task16;
 
 
+import com.homework.task17.MyLinkedList;
+
+import java.util.Iterator;
+
 public class MyStringArrayList {
     private static final int INIT_SIZE = 16;
     private static Object[] array = new Object[INIT_SIZE];
-    private int numOfBlocks = 0;
+    private static int numOfBlocks = 0;
 
     public void add(Object item) {
-        if(numOfBlocks == array.length-1)
-            resize(array.length+1);
+        if (numOfBlocks == array.length - 1)
+            resize(array.length + 10);
         array[numOfBlocks++] = item;
     }
 
 
-    public void add(int index, Object item) {
-        for (int i = numOfBlocks; i < index; i++) {
-            numOfBlocks++;
-        }
-        if (numOfBlocks >=  index){
-            array[numOfBlocks++] = item;
-        }
-       }
+    public void add(int index, String string) {
+        final int s;
+        Object[] elementData;
+        if ((s = numOfBlocks) == (elementData = this.array).length)
+            resize(array.length+10);
+        System.arraycopy(elementData, index,
+                elementData, index + 1,
+                s - index);
+        elementData[index] = string;
+        numOfBlocks++;
+    }
 
 
-    public void set(int index,Object item) {
+    public void set(int index, Object item) {
 
         array[index] = item;
     }
@@ -34,13 +41,13 @@ public class MyStringArrayList {
     }
 
     public void remove(int index) {
-        for (int i = index; i< numOfBlocks; i++)
-            array[i] = array[i+1];
+        for (int i = index; i < numOfBlocks; i++)
+            array[i] = array[i + 1];
         array[numOfBlocks] = null;
         numOfBlocks--;
     }
 
-    public int size() {
+    public static int size() {
         return numOfBlocks;
     }
 
@@ -52,10 +59,13 @@ public class MyStringArrayList {
     }
 
 
-    public void getString(MyStringArrayList myStringArrayList) {
-        System.out.println("Содержимое списка ");
-        for (int i = 0; i < myStringArrayList.size(); i++) {
-            System.out.println(i +": " + myStringArrayList.get(i));
+
+
+    public String toString() {
+        String res = "Содержание списка: ";
+        for (int i = 0; i < MyStringArrayList.size(); i++) {
+            res += " " + MyStringArrayList.get(i) + ',' ;
         }
+        return res;
     }
 }

@@ -187,12 +187,13 @@ public class MyLinkedList {
             }
             Node current = head;
             while (current.next != null) {
-                System.out.print(current.data + "->");
+                System.out.print(current.data + "; ");
                 current = current.next;
             }
 
             return current.data + "\n";
         }
     }
+
 
 

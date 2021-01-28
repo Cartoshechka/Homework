@@ -4,24 +4,22 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main{
+public class Main {
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Print in whitch you want to convert your degrees from celsium to (Calvin or Farengeit)");
-
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
+        System.out.println("Print degrees in celsium");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        double celsium = Double.parseDouble(reader.readLine());
+        System.out.println("Print in whitch you want to convert your degrees from celsium to (calvin or farengeit)");
+        BufferedReader calvinOrFarengeit = new BufferedReader(new InputStreamReader(System.in));
         String input;
-        while (!(input = bufferedReader.readLine()).equals("")) {
-            double res;
+        while (!(input = calvinOrFarengeit.readLine()).equals("")) {
             switch (input) {
                 case "calvin":
-                   Calvin calvin = new Calvin();
-                   calvin.convert();
+                    System.out.println(Convert.calvin(celsium));
                     break;
                 case "farengeit":
-                   Farengeit farengeit = new Farengeit();
-                   farengeit.convert();
+                    System.out.println(Convert.farengeit(celsium));
                     break;
                 default:
                     System.out.println("Invalid input");
@@ -29,13 +27,9 @@ public class Main{
 
             }
 
-
         }
-
-
     }
-
-    }
+}
 
 
 

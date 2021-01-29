@@ -29,6 +29,7 @@ public class Main {
         System.out.println(linkedList.getSize());
         linkedList.addFirst(3);
         linkedList.set(1,3);
+        linkedList.add(3,228);
         System.out.println(linkedList.print());
 
 

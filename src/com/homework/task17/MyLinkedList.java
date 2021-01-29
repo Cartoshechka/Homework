@@ -33,19 +33,27 @@ public class MyLinkedList {
             return x;
         }
     }
+    public int get(int index) {
+        checkElementIndex(index);
+        return node(index).item;
+    }
+    public int set(int index, int item) {
+        checkElementIndex(index);
+        Node x = node(index);
+        int oldVal = x.item;
+        x.item = item;
+        return oldVal;
+    }
+    public int remove(int index) {
+        checkElementIndex(index);
+        return unlink(node(index));
+    }
     public int add(int item) {
         linkLast(item);
         return 1;
     }
     public void addFirst(int item) {
         linkFirst(item);
-    }
-    private void checkPositionIndex(int index) {
-        if (!isPositionIndex(index))
-            throw new IndexOutOfBoundsException("Incorre index -> "+ index);
-    }
-    private boolean isPositionIndex(int index) {
-        return index >= 0 && index <= size;
     }
     public void add(int index, int item) {
         checkPositionIndex(index);
@@ -55,6 +63,28 @@ public class MyLinkedList {
         else
             linkBefore(item, node(index));
     }
+    public String print(){
+
+        if (getSize() == 0) {
+            return null;
+        }
+        Node current = first;
+        while (current.next != null) {
+            System.out.print(current.item + "; ");
+            current = current.next;
+        }
+
+        return current.item + "\n";
+    }
+
+    private void checkPositionIndex(int index) {
+        if (!isPositionIndex(index))
+            throw new IndexOutOfBoundsException("Incorre index -> "+ index);
+    }
+    private boolean isPositionIndex(int index) {
+        return index >= 0 && index <= size;
+    }
+
     private void linkLast(int item) {
         final Node last = this.last;
         final Node newNode = new Node(last, item, null);
@@ -66,13 +96,7 @@ public class MyLinkedList {
         size++;
         modCount++;
     }
-    public int set(int index, int item) {
-        checkElementIndex(index);
-        Node x = node(index);
-        int oldVal = x.item;
-        x.item = item;
-        return oldVal;
-    }
+
     void linkBefore(int item, Node bf) {
         final Node bef = bf.prev;
         final Node newNode = new Node(bef, item, bf);
@@ -108,10 +132,7 @@ public class MyLinkedList {
     private boolean isElementIndex(int index) {
         return index >= 0 && index < size;
     }
-   public int remove(int index) {
-       checkElementIndex(index);
-       return unlink(node(index));
-   }
+
     private int unlink(Node x) {
         final int element = x.item;
         final Node next = x.next;
@@ -137,23 +158,8 @@ public class MyLinkedList {
         return element;
     }
 
-        public String print(){
 
-            if (getSize() == 0) {
-                return null;
-            }
-            Node current = first;
-            while (current.next != null) {
-                System.out.print(current.item + "; ");
-                current = current.next;
-            }
 
-            return current.item + "\n";
-        }
-    public int get(int index) {
-        checkElementIndex(index);
-        return node(index).item;
-    }
     }
 
 

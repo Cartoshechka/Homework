@@ -18,12 +18,21 @@ public class Main {
         linkedList.add(10);
         linkedList.add(11);
         linkedList.add(12);
-        linkedList.add(3, 1);
         System.out.println(linkedList.print());
+        System.out.println("--------------------------------------");
         System.out.println(linkedList.getSize());
-        linkedList.remove(1);
+        System.out.println(linkedList.get(3));
+        linkedList.remove(3);
+        System.out.println(linkedList.get(3));
         System.out.println(linkedList.print());
+        System.out.println("----------------------------------------------------------");
         System.out.println(linkedList.getSize());
+        linkedList.addFirst(3);
+        linkedList.set(1,3);
+        System.out.println(linkedList.print());
+
+
+
 
 
 

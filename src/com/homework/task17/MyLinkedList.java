@@ -1,198 +1,159 @@
 package com.homework.task17;
 
+import java.util.LinkedList;
+
 public class MyLinkedList {
 
-    static class Node {
-
-        int data;
+    private static class Node {
+        int item;
         Node next;
+        Node prev;
 
-        public Node(int data) {
-            this.data = data;
+        Node(Node prev, int element, Node next) {
+            this.item = element;
+            this.next = next;
+            this.prev = prev;
         }
     }
-
-
-    Node head;
+    Node last;
+    protected transient int modCount = 0;
+    Node first;
     int size;
+    Node node(int index) {
 
-    public void add(int data) {
-        if (head == null) {
-            head = new Node(data);
-            size += 1;
-            return;
+        if (index < (size >> 1)) {
+            Node x = first;
+            for (int i = 0; i < index; i++)
+                x = x.next;
+            return x;
+        } else {
+            Node x = last;
+            for (int i = size - 1; i > index; i--)
+                x = x.prev;
+            return x;
         }
-
-        Node current = head;
-        while (current.next != null) {
-            current = current.next;
-        }
-        current.next = new Node(data);
-        size += 1;
     }
+    public int add(int item) {
+        linkLast(item);
+        return 1;
+    }
+    public void addFirst(int item) {
+        linkFirst(item);
+    }
+    private void checkPositionIndex(int index) {
+        if (!isPositionIndex(index))
+            throw new IndexOutOfBoundsException("Incorre index -> "+ index);
+    }
+    private boolean isPositionIndex(int index) {
+        return index >= 0 && index <= size;
+    }
+    public void add(int index, int item) {
+        checkPositionIndex(index);
+
+        if (index == size)
+            linkLast(item);
+        else
+            linkBefore(item, node(index));
+    }
+    private void linkLast(int item) {
+        final Node last = this.last;
+        final Node newNode = new Node(last, item, null);
+        this.last = newNode;
+        if (last == null)
+            first = newNode;
+        else
+            last.next = newNode;
+        size++;
+        modCount++;
+    }
+    public int set(int index, int item) {
+        checkElementIndex(index);
+        Node x = node(index);
+        int oldVal = x.item;
+        x.item = item;
+        return oldVal;
+    }
+    void linkBefore(int item, Node bf) {
+        final Node bef = bf.prev;
+        final Node newNode = new Node(bef, item, bf);
+        bf.prev = newNode;
+        if (bef == null)
+            first = newNode;
+        else
+            bef.next = newNode;
+        size++;
+        modCount++;
+    }
+    private void linkFirst(int item) {
+        final Node f = first;
+        final Node newNode = new Node(null, item, f);
+        first = newNode;
+        if (f == null)
+            last = newNode;
+        else
+            f.prev = newNode;
+        size++;
+        modCount++;
+    }
+
 
 
     public int getSize() {
         return size;
     }
-
-    /*public Node  getData(int index){
-        if (index > getSize()) {
-            System.out.println("Incorrect index");
-        }
-
-        if (index == 0) {
-            return head;
-        } while (index < getSize()){
-
-            if ()
-
-
-        }
-
-        return null;
-    }*/
-   /* public String  get(int index) {
-        checkElementIndex(index);
-        return node(index).item;
-    }*/
     private void checkElementIndex(int index) {
         if (!isElementIndex(index))
-            System.out.println("Out of Bound");
+            System.out.println("Out of Bound ->" + index);
     }
     private boolean isElementIndex(int index) {
         return index >= 0 && index < size;
     }
+   public int remove(int index) {
+       checkElementIndex(index);
+       return unlink(node(index));
+   }
+    private int unlink(Node x) {
+        final int element = x.item;
+        final Node next = x.next;
+        final Node prev = x.prev;
 
-    public void add(int data, int index) {
-
-        if (index > getSize()) {
-            return;
-        }
-
-        Node current = head;
-        int pos = 0;
-        Node newNode = new Node(data);
-
-        if (index == 0) {
-            newNode.next = head;
-            head = newNode;
-            size += 1;
-            return;
-        }
-        while (current.next != null) {
-            if (pos == index - 1) {
-                break;
-            }
-            pos++;
-            current = current.next;
-        }
-
-        newNode.next = current.next;
-        current.next = newNode;
-        size += 1;
-
-    }
-    public void set(int index, int data){
-        if (index > getSize()) {
-            return;
-        }
-
-        Node current = head;
-        int pos = 0;
-        Node newNode = new Node(data);
-
-       findByIndex(index);
-    }
-
-    public boolean remove(int index) {
-        if (index < 0 || index > size - 1) {
-            throw new IllegalArgumentException();
-        }
-        if (index == 0) {
-            head = head.next;
+        if (prev == null) {
+            first = next;
         } else {
-            Node node = findNodeBeforeByIndex(index);
-            Node tmp = findByIndex(index);
-            node.next = tmp.next;
+            prev.next = next;
+            x.prev = null;
         }
+
+        if (next == null) {
+            last = prev;
+        } else {
+            next.prev = prev;
+            x.next = null;
+        }
+
+        x.item = 0;
         size--;
-        return false;
+        modCount++;
+        return element;
     }
-
-
-
-
-    private Node findByIndex(int index) {
-        if (index < 0 || index > size - 1) {
-            throw new IndexOutOfBoundsException();
-        }
-        int tmpIndex = 0;
-        if (head == null) {
-            throw new IndexOutOfBoundsException();
-        }
-
-        if (index == 0) {
-            return head;
-        }
-
-        Node node = head;
-        while (node.next != null) {
-            node = node.next;
-            tmpIndex++;
-            if (tmpIndex == index) {
-                return node;
-            }
-        }
-        throw new IndexOutOfBoundsException();
-    }
-
-    private Node findNodeBefore(int value) {
-        if (head.data == value) {
-            return new Node(value);
-        }
-
-        Node node = head;
-        while (node.next != null) {
-            if (node.next.data == value) {
-                return node;
-            }
-            node = node.next;
-        }
-        return null;
-    }
-
-    private Node findNodeBeforeByIndex(int index) {
-        if (index <= 0 || index > size - 1) {
-            return null;
-        }
-
-        int count = 0;
-        Node node = head;
-        while (node.next != null) {
-            if (count == index - 1) {
-                return node;
-            }
-            count++;
-            node = node.next;
-        }
-        return null;
-    }
-
 
         public String print(){
 
             if (getSize() == 0) {
                 return null;
             }
-            Node current = head;
+            Node current = first;
             while (current.next != null) {
-                System.out.print(current.data + "; ");
+                System.out.print(current.item + "; ");
                 current = current.next;
             }
 
-            return current.data + "\n";
+            return current.item + "\n";
         }
+    public int get(int index) {
+        checkElementIndex(index);
+        return node(index).item;
+    }
     }
 
 

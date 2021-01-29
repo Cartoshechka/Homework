@@ -39,6 +39,11 @@ public class Mn {
         linkedList.add(12);
 
         linkedList.get(2);
+        linkedList.remove(1);
+        linkedList.addFirst(1);
+
+        System.out.println(linkedList.toString());
+        linkedList.set(1,3);
         System.out.println(linkedList.toString());
 
 

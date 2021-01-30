@@ -1,18 +1,18 @@
 package com.homework.task11;
 
-public class Gilaya extends Constructor {
+public class Gilaya extends TaxConstructor {
 
-    int subsidii;
+    double subsidii;
 
-    public Gilaya(int tax, int square, int subsidii) {
+    public Gilaya(double tax, double square, double subsidii) {
         super(tax, square);
         this.subsidii = subsidii;
-        int res = tax * square -(tax * square / 100 * subsidii);
-
-        System.out.println("Налог на жил площадь составляет: " + res);
     }
 
-
+    public double TaxCalculator() {
+        double res = super.TaxCalculator() -(super.TaxCalculator() / 100 * subsidii);
+        return res;
+    }
 
 
 }

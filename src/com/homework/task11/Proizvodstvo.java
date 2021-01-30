@@ -1,12 +1,16 @@
 package com.homework.task11;
 
-public class Proizvodstvo extends Constructor {
+public class Proizvodstvo extends TaxConstructor {
 
 
-    public Proizvodstvo(int tax, int square) {
+    public Proizvodstvo(double tax, double square) {
         super(tax, square);
-        int res = tax * square;
-        System.out.println("Налог на производство составляет: " + res);
 
+    }
+
+    @Override
+    public double TaxCalculator() {
+        double res = super.TaxCalculator();
+        return res;
     }
 }

@@ -1,19 +1,22 @@
 package com.homework.task11;
 
-public class Torgovaya extends Constructor {
+public class Torgovaya extends TaxConstructor {
 
-    int viruchka;
-    public Torgovaya(int tax, int square, int viruchka) {
+    double viruchka;
+    public Torgovaya(double tax, double square, double viruchka) {
         super(square,tax);
         this.viruchka = viruchka;
-        if (viruchka > 100 || viruchka == 100){
-            System.out.println("Налог составляет: " + tax * square);
-
-        }else {
-            System.out.println("Вы заработали меньше 100 грн поетому налог с вас не взыимается");
-        }
 
     }
 
+    @Override
+    public double TaxCalculator() {
+        if (viruchka < 100) {
+            return 0;
 
+        } else {
+            double res = super.TaxCalculator();
+            return res;
+        }
+    }
 }

@@ -13,23 +13,22 @@ public class Main {
         System.out.println("Print in whitch you want to convert your degrees from celsium to (calvin or farengeit)");
         BufferedReader calvinOrFarengeit = new BufferedReader(new InputStreamReader(System.in));
         String input;
+
         while (!(input = calvinOrFarengeit.readLine()).equals("")) {
+            Convert converting = null;
             switch (input) {
                 case "calvin":
-                    System.out.println(Convert.calvin(celsium));
+                    converting = new Calvin();
                     break;
                 case "farengeit":
-                    System.out.println(Convert.farengeit(celsium));
+                   converting = new Farengheit();
                     break;
                 default:
                     System.out.println("Invalid input");
-
-
+                    break;
             }
-
+            System.out.println(converting.converts(celsium));
         }
     }
 }
-
-
 

@@ -18,21 +18,17 @@ public class Main {
         while (true) {
             System.out.println("Set city name or press enter");
             sity = reader.readLine();
-            if (sity.isEmpty()) {
-                break;
-            }
+            if (sity.isEmpty()) {break;}
             System.out.println("Set surname or press enter");
             surname = reader.readLine();
-            if (surname.isEmpty()) {
-                break;
-            }
+            if (surname.isEmpty()) {break;}
             family.put(sity, surname);
         }
         System.out.println("Print city name to find surname");
-        String g = reader.readLine();
+        String lookForCity = reader.readLine();
         for (Map.Entry<String, String> map : family.entrySet()) {
 
-            if (g.equals(map.getKey())){
+            if (lookForCity.equals(map.getKey())){
                 System.out.println(map.getValue());
             }
         }

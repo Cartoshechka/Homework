@@ -29,7 +29,7 @@ public class Main {
         String lookForCity = reader.readLine();
        /* if (family.containsKey(lookForCity)){
             System.out.println(family.get(lookForCity));
-        }*/
+        }else {System.out.println("We cannot find this city")}*/
         System.out.println(family.getOrDefault(lookForCity, "We cannot find this city"));
 
 

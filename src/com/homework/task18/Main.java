@@ -10,7 +10,7 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-        Map<String, LocalDate> map = new HashMap<String, LocalDate>();
+        Map<String, LocalDate> map = new HashMap<>();
 
         map.put("Schwarzenegger0",LocalDate.of(1947,8,30));
         map.put("Schwarzenegger1",LocalDate.of(1947,7,25));

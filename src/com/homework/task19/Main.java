@@ -27,6 +27,9 @@ public class Main {
         }
         System.out.println("Print city name to find surname");
         String lookForCity = reader.readLine();
+       /* if (family.containsKey(lookForCity)){
+            System.out.println(family.get(lookForCity));
+        }*/
         System.out.println(family.getOrDefault(lookForCity, "We cannot find this city"));
 
 

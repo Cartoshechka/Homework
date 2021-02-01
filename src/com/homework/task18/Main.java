@@ -27,7 +27,8 @@ public class Main {
 
 
         for (String element : mapKeys) {
-            if (map.get(element).getMonth() == Month.JUNE || map.get(element).getMonth() == Month.JULY || map.get(element).getMonth() == Month.AUGUST){
+            Month month = map.get(element).getMonth();
+            if (month == Month.JUNE || month == Month.JULY || month == Month.AUGUST){
                 map.remove(element);
             }
         }

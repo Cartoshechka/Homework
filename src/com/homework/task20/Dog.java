@@ -3,7 +3,7 @@ package com.homework.task20;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Dog extends Animal{
+public class Dog extends Animal {
     public Dog(String name) {
         super(name);
     }

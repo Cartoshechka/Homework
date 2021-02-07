@@ -1,35 +1,91 @@
 package com.homework.task21;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        Comparator<String> stringComparator = new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                if (o1.length() > o2.length()) {
-                    return -1;
-                } else if (o1.length() < o2.length()) {
-                    return 1;
-                }
-                return 0;
-            }
-        };
-
-        List<String> strings = new ArrayList<>();
+    public static void main(String[] args) throws Exception
+    {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String input;
-        while (!(input = reader.readLine()).equals("")){
-            strings.add(input);
-
+        ArrayList<String> list = new ArrayList<>();
+        while (true) {
+            String s = reader.readLine();
+            if (s.isEmpty()) {
+                break;
+            }
+            list.add(s);
         }
-        Collections.sort(strings, String.CASE_INSENSITIVE_ORDER);
-        System.out.println(strings);
 
+        String[] array = list.toArray(new String[list.size()]);
+        sort(array);
 
+        for (String s : array) {
+            System.out.println(s);
+        }
+    }
+
+    public static void sort(String[] array) {
+        ArrayList<String> word = new ArrayList<>();
+        ArrayList<String> number = new ArrayList<>();
+
+        for (String tmp : array) {
+            if (isNumber(tmp)) {
+                number.add(tmp);
+            } else word.add(tmp);
+        }
+
+        for (int i = 0; i < word.size(); i++) {
+            for (int j = 0; j < word.size() - 1 - i; j++) {
+                if (isGreaterThan(word.get(j), word.get(j + 1))) {
+                    String tmp = word.get(j + 1);
+                    word.set(j + 1, word.get(j));
+                    word.set(j, tmp);
+                }
+            }
+        }
+
+        for (int i = 0; i < number.size(); i++) {
+            for (int j = 0; j < number.size() - 1 - i; j++) {
+                if (!isGreaterThan(number.get(j), number.get(j + 1))) {
+                    String tmp = number.get(j);
+                    number.set(j, number.get(j + 1));
+                    number.set(j + 1, tmp);
+                }
+            }
+        }
+
+        int wordCount = 0;
+        int numberCount = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (isNumber(array[i])) {
+                array[i] = number.get(numberCount);
+                numberCount++;
+            } else {
+                array[i] = word.get(wordCount);
+                wordCount++;
+            }
+        }
+    }
+
+    public static boolean isGreaterThan(String a, String b) {
+        return a.compareTo(b) > 0;
+    }
+
+    public static boolean isNumber(String s) {
+        if (s.length() == 0) {
+            return false;
+        }
+
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            char c = chars[i];
+            if ((i != 0 && c == '-') || (!Character.isDigit(c) && c != '-')) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

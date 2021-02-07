@@ -12,30 +12,32 @@ public class Main {
         Set<Cat> catSet = createCats();
         Set<Dog> dogSet = createDogs();
 
-        Set<Object> allAnimals  = join(catSet,dogSet);
+        Set<Object> allAnimals = join(catSet, dogSet);
 
         printPets(Collections.singleton(catSet));
         printPets(Collections.singleton(dogSet));
         printPets(Collections.singleton(allAnimals));
 
-        removeCats(allAnimals,catSet);
+        removeCats(allAnimals, catSet);
         /*removeDogs(allAnimals,dogSet);*/
         printPets(Collections.singleton(allAnimals));
     }
-    public static Set<Object> join(Set<Cat> cats, Set<Dog> dogs)
-    {
+
+    public static Set<Object> join(Set<Cat> cats, Set<Dog> dogs) {
         HashSet<Object> pets = new HashSet<Object>();
         pets.addAll(cats);
         pets.addAll(dogs);
 
         return pets;
     }
+
     public static void removeCats(Set<Object> pets, Set<Cat> cats) {
         pets.removeAll(cats);
     }
-   /* public static void removeDogs(Set<Object> pets, Set<Dog> dogs) {
-        pets.removeAll(dogs);
-    }*/
+
+    /* public static void removeDogs(Set<Object> pets, Set<Dog> dogs) {
+         pets.removeAll(dogs);
+     }*/
     public static void printPets(Set<Object> pets) {
         for (Object pet : pets) {
             System.out.println(pet);

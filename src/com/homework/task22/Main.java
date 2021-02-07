@@ -36,10 +36,10 @@ public class Main {
             }
             System.out.println("Set staff salary or press enter");
             Long sal = Long.parseLong(reader.readLine());
-            if (sal == null){
+            if (sal == null) {
                 break;
             }
-            staffTreeSet.add(new Staff(name, surname,sal));
+            staffTreeSet.add(new Staff(name, surname, sal));
         }
         System.out.println(staffTreeSet);
 

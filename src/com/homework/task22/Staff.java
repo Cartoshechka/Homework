@@ -26,9 +26,9 @@ public class Staff implements Comparable<Staff> {
 
     @Override
     public int compareTo(Staff o) {
-        if (this.salary > o.salary){
+        if (this.salary > o.salary) {
             return -1;
-        } else if (this.salary < o.salary){
+        } else if (this.salary < o.salary) {
             return 1;
         }
         return 0;

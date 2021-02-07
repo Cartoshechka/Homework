@@ -24,7 +24,7 @@ public class Main {
     }
 
     public static Set<Object> join(Set<Cat> cats, Set<Dog> dogs) {
-        HashSet<Object> pets = new HashSet<Object>();
+        HashSet<Object> pets = new HashSet<>();
         pets.addAll(cats);
         pets.addAll(dogs);
 

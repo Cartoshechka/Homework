@@ -42,6 +42,6 @@ public class Main {
         for (Object pet : pets) {
             System.out.println(pet);
         }
-        System.out.println();
+        System.out.println("--------------------------------------------------------------------");
     }
 }

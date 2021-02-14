@@ -7,8 +7,7 @@ public enum DateFormattEnum {
     COLON,
     ASTERISK,
     MONTH_LETTERS,
-    TWO_DIGITS_OF_YEAR
-    ;
+    TWO_DIGITS_OF_YEAR;
 
 
 }

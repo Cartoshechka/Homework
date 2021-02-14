@@ -13,8 +13,8 @@ public class Main {
             fileInputStream = new FileInputStream(sourceFileName);
 
         } catch (FileNotFoundException e) {
-            System.out.println("Файл не существует");
-            System.out.println("Введите название файла ещё раз");
+            System.out.println("File not found");
+            System.out.println("Type file name one more time");
             sourceFileName = reader.readLine();
             fileInputStream = new FileInputStream(sourceFileName);
 
@@ -30,7 +30,7 @@ public class Main {
         }
 
 
-        System.out.println("Скопировано байт " + count);
+        System.out.println("Byte copied-> " + count);
 
         fileInputStream.close();
         fileOutputStream.close();

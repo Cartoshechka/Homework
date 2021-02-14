@@ -12,7 +12,6 @@ import static com.homework.task25.DateFormattEnum.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        DateFormat formatter;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         LocalDate userDate = LocalDate.parse(reader.readLine());

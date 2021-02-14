@@ -9,6 +9,7 @@ public class Main {
         String destinationFileName;
         FileInputStream fileInputStream;
         try {
+            System.out.println("Type file name which you want to copy ");
             sourceFileName = reader.readLine();
             fileInputStream = new FileInputStream(sourceFileName);
 
@@ -19,6 +20,7 @@ public class Main {
             fileInputStream = new FileInputStream(sourceFileName);
 
         }
+        System.out.println("Type file name in which you want to copy");
         destinationFileName = reader.readLine();
         FileOutputStream fileOutputStream = new FileOutputStream(destinationFileName);
 
@@ -28,7 +30,6 @@ public class Main {
             fileOutputStream.write(data);
             count++;
         }
-
 
         System.out.println("Byte copied-> " + count);
 

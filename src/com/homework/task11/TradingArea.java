@@ -2,16 +2,16 @@ package com.homework.task11;
 
 public class TradingArea extends BaseProperty {
 
-    double viruchka;
-    public TradingArea(double tax, double square, double viruchka) {
+    double proceeds;
+    public TradingArea(double tax, double square, double proceeds) {
         super(square,tax);
-        this.viruchka = viruchka;
+        this.proceeds = proceeds;
 
     }
 
     @Override
     public double taxCalculation() {
-        if (viruchka < 100) {
+        if (proceeds < 100) {
             return 0;
 
         } else {

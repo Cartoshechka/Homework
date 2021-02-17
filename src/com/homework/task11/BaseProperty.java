@@ -1,15 +1,15 @@
 package com.homework.task11;
 
-public class TaxConstructor {
+public class BaseProperty {
     private double square;
     private double tax;
 
-    public TaxConstructor(double tax, double square) {
+    public BaseProperty(double tax, double square) {
         this.square = square;
         this.tax = tax;
 
     }
-    public double TaxCalculator() {
+    public double taxCalculation() {
         double result = square * tax;
         return result;
 

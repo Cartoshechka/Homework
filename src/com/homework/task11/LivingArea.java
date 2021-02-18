@@ -10,7 +10,8 @@ public class LivingArea extends BaseProperty {
     }
 
     public double taxCalculation() {
-        double res = super.taxCalculation() -(super.taxCalculation() / 100 * subsidies);
+        double calculationRes = super.taxCalculation();
+        double res = calculationRes -(calculationRes / 100 * subsidies);
         return res;
     }
 

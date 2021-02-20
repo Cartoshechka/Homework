@@ -9,9 +9,9 @@ public class Main {
         AttackerRandom attacker4 = new AttackerRandom();
         AttackerRandom attacker5 = new AttackerRandom();
         AttackerRandom attacker6 = new AttackerRandom();
-        BodyGuard jiujist = new Jiujist();
-        System.out.println(jiujist.saveClientLife(attacker1));
-        System.out.println(jiujist.saveClientLife(attacker4));
+        BodyGuard jiujitsu = new Jiujitsu();
+        System.out.println(jiujitsu.saveClientLife(attacker1));
+        System.out.println(jiujitsu.saveClientLife(attacker4));
         BodyGuard karate = new Karate();
         System.out.println(karate.saveClientLife(attacker2));
         System.out.println(karate.saveClientLife(attacker5));

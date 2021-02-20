@@ -6,9 +6,9 @@ public class Karate extends BodyGuard {
         return "Saving client life using karate skills";
 
     }
-
-    @Override
-    String applyMartialArts(AttackerRandom attackerRandom) {
+    String applyMartialArts(AttackerRandom attacker) {
         return "Saving client life using karate skills";
+
     }
+
 }

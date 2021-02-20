@@ -2,29 +2,29 @@ package com.homework.task15;
 
 abstract class BodyGuard {
     abstract String applyMartialArts(Attacker attacker);
-    abstract String applyMartialArts(AttackerRandom attackerRandom);
+    abstract String applyMartialArts(AttackerRandom attacker);
 
     String shoot(Attacker attacker) {
         return "Shooting attacker";
     }
-    String shoot(AttackerRandom attackerRandom) {
+
+    String shoot(AttackerRandom attacker) {
         return "Shooting attacker";
     }
 
     String saveClientLife(Attacker attacker) {
         if (attacker.hasGun())
-           return shoot(attacker);
+            return shoot(attacker);
         else
-          return applyMartialArts(attacker);
-
-    }
-    String saveClientLife(AttackerRandom attackerRandom) {
-        if (attackerRandom.hasGun())
-            return shoot(attackerRandom);
-        else
-            return applyMartialArts(attackerRandom);
+            return applyMartialArts(attacker);
 
     }
 
+    public String saveClientLife(AttackerRandom attacker) {
+        if (AttackerRandom.hasGun())
+            return shoot(attacker);
+        else
+            return applyMartialArts(attacker);
 
+    }
 }

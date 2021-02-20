@@ -5,9 +5,8 @@ public class Boxer extends BodyGuard{
     String applyMartialArts(Attacker attacker) {
         return "Saving client life using boxing skills";
     }
-
-    @Override
-    String applyMartialArts(AttackerRandom attackerRandom) {
+    String applyMartialArts(AttackerRandom attacker) {
         return "Saving client life using boxing skills";
     }
+
 }

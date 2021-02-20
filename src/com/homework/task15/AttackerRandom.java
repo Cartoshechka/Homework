@@ -1,10 +1,10 @@
 package com.homework.task15;
 
 public class AttackerRandom {
-    boolean gun;
+    boolean hasGun;
 
     AttackerRandom() {
-        this.gun = AttackerRandom.hasGun();
+        this.hasGun = AttackerRandom.hasGun();
     }
 
     public static boolean hasGun() {

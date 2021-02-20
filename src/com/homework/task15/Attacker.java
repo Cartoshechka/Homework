@@ -1,13 +1,13 @@
 package com.homework.task15;
 
 public class Attacker {
-    boolean gun;
+    boolean hasGun;
 
     Attacker(boolean hasGun){
-        this.gun = hasGun;
+        this.hasGun = hasGun;
     }
 
     public boolean hasGun() {
-        return this.gun;
+        return this.hasGun;
     }
 }

@@ -3,26 +3,26 @@ package com.homework.task26;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-      /*  Counter counter = new Counter();
+        Counter counter = new Counter();
         for (int i = 0; i < 10; i++) {
             Thread thread = new Thread(counter);
             System.out.println(thread.getName() + " starting");
             thread.start();
             System.out.println(thread.getName() + " joining");
             thread.join();
-        }*/
-
-        for (int i = 0; i < 10; i++) {
-            Counter counter = new Counter();
-            counter.start();
-            System.out.println(counter.getName() + " started");
-            counter.join();
-            System.out.println(counter.getName() + " joined");
         }
+        /*
+       for (int i = 0; i < 10; i++) {
+            Counter1 counter1 = new Counter1();
+            counter1.start();
+            System.out.println(counter1.getName() + " started");
+            counter1.join();
+            System.out.println(counter1.getName() + " joined");
+        }*/
     }
 }
 
-/*class Counter implements Runnable {
+class Counter implements Runnable {
     private static int counter;
 
     private static void nextCounter() {
@@ -35,11 +35,12 @@ public class Main {
             while (counter != 1000) {
                 nextCounter();
             }
-            System.out.println(counter);
+            System.out.println("The result is " + counter);
         }
     }
-}*/
-class Counter extends Thread {
+}
+/*
+class Counter1 extends Thread {
     private static int counter;
 
     private static void nextCounter() {
@@ -56,3 +57,4 @@ class Counter extends Thread {
         }
     }
 }
+*/

@@ -6,16 +6,19 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Main {
+    private static final int nThreads = 10;
+
     public static void main(String[] args) throws InterruptedException {
         Counter counter = new Counter();
         List<Thread> threads = new ArrayList<>();
 
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
-        for (int i = 0; i < 10; i++) {
+        ExecutorService executorService = Executors.newFixedThreadPool(nThreads);
+        for (int i = 0; i < nThreads; i++) {
             Thread thread = new Thread(counter);
             executorService.submit(thread);
             threads.add(thread);
         }
+
         executorService.shutdown();
         for (Thread thr : threads) {
             thr.join();

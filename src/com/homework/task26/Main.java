@@ -2,27 +2,30 @@ package com.homework.task26;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Counter1 counter = new Counter1();
+        Counter counter = new Counter();
         List<Thread> threads = new ArrayList<>();
 
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
         for (int i = 0; i < 10; i++) {
-            Thread thread0 = new Thread(counter);
-            thread0.start();
-            System.out.println(thread0.getName() + " started");
-            threads.add(thread0);
+            Thread thread = new Thread(counter);
+            executorService.submit(thread);
+            threads.add(thread);
         }
+        executorService.shutdown();
         for (Thread thr : threads) {
             thr.join();
             System.out.println(thr.getName() + " joined");
         }
-        System.out.println("The result is " + Counter1.getCounter());
+        System.out.println("The result is " + Counter.getCounter());
     }
 }
 
-class Counter1 implements Runnable {
+class Counter implements Runnable {
     private static Integer counter = 0;
 
     private static void nextCounter() {

@@ -27,7 +27,5 @@ public class Main {
             return builder.toString();
         };
         System.out.println("Your text with duplicated letters: " + duplicateLetters.apply(userText));
-
-
     }
 }

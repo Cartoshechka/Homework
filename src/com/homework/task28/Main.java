@@ -3,18 +3,21 @@ package com.homework.task28;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 public class Main {
     static Integer a;
     static Integer b;
-    public static Map<Operations, Integer> MapOperator = Map.of(
-            Operations.PLUS, Calculator.add(a, b),
-            Operations.MINUS, Calculator.sub(a,b),
-            Operations.MULTIPLY, Calculator.mul(a,b),
-            Operations.DIVIDE, Calculator.div(a,b)
-    );
+    public final static Map<Operations,Integer> mapOperator = new HashMap<>();
+//       static {   mapOperator.put(Operations.PLUS, new Plus().apply();
+   /*         Operations.MINUS, Minus::Calculate,
+            Operations.MULTIPLY, Multiply::Calculate,
+            Operations.DIVIDE, Divide::Calculate*/
+//    }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,31 +25,20 @@ public class Main {
         b = Integer.parseInt(br.readLine());
         String input = br.readLine().toUpperCase(Locale.ROOT);
         Operations op = Operations.valueOf(input);
-        System.out.println();
+        Integer integer = mapOperator.get(op);
+        System.out.println(integer);
 
     }
-
-static class Calculator {
-    public static Integer add(Integer a, Integer b) {
-        return a + b;
+public static class Plus implements Calculator{
+    public Integer apply() {
+        return a+b;
     }
 
-    public static Integer sub(Integer a, Integer b) {
-        return a - b;
-    }
-
-    public static Integer div(Integer a, Integer b) {
-        return a / b;
-    }
-
-    public static Integer mul(Integer a, Integer b) {
-        return a * b;
-    }
 }
-    enum Operations {
-        PLUS,
-        MINUS,
-        MULTIPLY,
-        DIVIDE
-    }
+}
+enum Operations {
+    PLUS,
+    MINUS,
+    MULTIPLY,
+    DIVIDE
 }

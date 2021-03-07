@@ -8,6 +8,7 @@ import java.util.function.UnaryOperator;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        System.out.println("Enter the word you want to duplicate");
         Supplier<String> stringSupplier = () -> {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
@@ -22,10 +23,12 @@ public class Main {
            StringBuilder builder = new StringBuilder();
             for (int i = 0; i < text.length() ; i++) {
                 builder.append(text.charAt(i)).append(text.charAt(i));
-
             }
             return builder.toString();
         };
-        System.out.println("Your text with duplicated letters: " + duplicateLetters.apply(userText));
+        startNPrint(userText, duplicateLetters);
+    }
+    static void startNPrint(String text, UnaryOperator<String> stringUnaryOperator) {
+        System.out.println("Your text with duplicated letters: " + stringUnaryOperator.apply(text));
     }
 }

@@ -34,14 +34,14 @@ enum Operations implements Calculator {
             "MULTIPLY", Operations.MULTIPLY,
             "DIVIDE", Operations.DIVIDE
     );
-    Calculator operator;
+    Calculator op;
 
-    Operations(Calculator operator) {
-        this.operator = operator;
+    Operations(Calculator op){
+        this.op = op;
     }
 
     public int calculate(int a, int b) {
-        return operator.calculate(a, b);
+        return op.calculate(a, b);
     }
 
     public static void calculate(int a, String operation, int b) {

@@ -44,7 +44,7 @@ enum Operations implements Calculator {
         return op.calculate(a, b);
     }
 
-    public static void calculate(int a, String operation, int b) {
-        System.out.println(mapOperations.get(operation).calculate(a, b));
+    public static void calculate(int a, String op, int b) {
+        System.out.println(mapOperations.get(op).calculate(a, b));
     }
 }

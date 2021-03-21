@@ -11,7 +11,7 @@ public class Main {
     static BufferedReader bR = new BufferedReader(new InputStreamReader(System.in));
     static String input;
     public static void main(String[] args) throws IOException {
-        System.out.println("To stop program print something, to start press enter");
+        System.out.println("To stop program print something, to start(after each action) press enter");
         while (bR.readLine().equals("")) {
             System.out.println("Choose the operation (add, delete, get)");
             switch (bR.readLine().toUpperCase(Locale.ROOT)) {

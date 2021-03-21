@@ -67,7 +67,7 @@ public class Manager {
     }
 
     static void deleteBook() throws IOException {
-        System.out.println("Count of books (first starts with 0" + books.size());
+        System.out.println("Count of books , size is: " + books.size());
         System.out.println("Print index");
         int index = 0;
         try {
@@ -77,6 +77,7 @@ public class Manager {
             index = Integer.parseInt(bR.readLine());
         }
         try {
+            index = index - 1;
             books.remove(index);
         }catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("I remember u that indexing starts with 0 plz include it and try again");
@@ -90,7 +91,7 @@ public class Manager {
     }
 
     static void deleteGenre() throws IOException {
-        System.out.println("Count of genres (first starts with 0" + genres.size());
+        System.out.println("Count of genres, size is: " + genres.size());
         System.out.println("Print index");
         int index = 0;
         try {
@@ -100,6 +101,7 @@ public class Manager {
             index = Integer.parseInt(bR.readLine());
         }
         try {
+            index = index -1;
             genres.remove(index);
         }catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("I remember u that indexing starts with 0 plz include it and try again");
@@ -113,7 +115,7 @@ public class Manager {
     }
 
     static void deleteAuthor() throws IOException {
-        System.out.println("Count of authors (first starts with 0" + authors.size());
+        System.out.println("Count of authors, size is: " + authors.size());
         System.out.println("Print index");
         int index = 0;
         try {
@@ -123,6 +125,7 @@ public class Manager {
             index = Integer.parseInt(bR.readLine());
         }
         try {
+            index = index - 1;
             authors.remove(index);
         }catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("I remember u that indexing starts with 0 plz include it and try again");

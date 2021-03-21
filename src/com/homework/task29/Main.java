@@ -13,8 +13,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("To stop program print something, to start press enter");
         while (bR.readLine().equals("")) {
-            System.out.println("Choose the operation");
-            switch (bR.readLine()) {
+            System.out.println("Choose the operation (add, delete, get)");
+            switch (bR.readLine().toUpperCase(Locale.ROOT)) {
                 case "ADD":
                     System.out.println("What u want to add? (book, author or genre)");
                     input = bR.readLine().toUpperCase(Locale.ROOT);

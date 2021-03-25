@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class Manager {
     static BufferedReader bR = new BufferedReader(new InputStreamReader(System.in));
-    private static final ArrayList<Book> books = new ArrayList<Book>();
-    private static final ArrayList<Genre> genres = new ArrayList<Genre>();
-    private static final ArrayList<Author> authors = new ArrayList<Author>();
+    private static final ArrayList<Book> books = new ArrayList<>();
+    private static final ArrayList<Genre> genres = new ArrayList<>();
+    private static final ArrayList<Author> authors = new ArrayList<>();
 
 
     static void addBook() throws IOException {
@@ -19,7 +19,7 @@ public class Manager {
         System.out.println("Choose books author");
         getAuthors();
         System.out.println("Print author number (1 or 2 etc.)");
-        Integer author = Integer.parseInt(bR.readLine());
+        int author = Integer.parseInt(bR.readLine());
         Author author1 = authors.get(author);
 
         System.out.println("Print books description");
@@ -35,7 +35,7 @@ public class Manager {
         System.out.println("Choose books genre");
         getGenres();
         System.out.println("Print genre number (1 or 2 etc.)");
-        Integer genre = null;
+        int genre;
         try {
             genre = Integer.parseInt(bR.readLine());
         } catch (IOException e) {

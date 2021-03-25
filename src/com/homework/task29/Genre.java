@@ -13,11 +13,6 @@ public class Genre{
     public String getName() {
         return name;
     }
-    public String getDescription() {
-        return description;
-    }
-
-
     @Override
     public String toString() {
         return "Genre{" +

@@ -18,7 +18,7 @@ public class Manager {
 
         System.out.println("Choose books author");
         getAuthors();
-        System.out.println("Print author number (1 or 2 etc.)");
+        System.out.println("Print author number (0 or 1 etc.)");
         int author = Integer.parseInt(bR.readLine());
         Author author1 = authors.get(author);
 
@@ -34,13 +34,13 @@ public class Manager {
         }
         System.out.println("Choose books genre");
         getGenres();
-        System.out.println("Print genre number (1 or 2 etc.)");
+        System.out.println("Print genre number (0 or 1 etc.)");
         int genre;
         try {
             genre = Integer.parseInt(bR.readLine());
         } catch (IOException e) {
-            System.out.println("Print author number (1 or 2 etc.)");
             System.out.println("Try again");
+            System.out.println("Print author number (0 or 1 etc.)");
             genre = Integer.parseInt(bR.readLine());
         }
 

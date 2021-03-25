@@ -5,13 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Locale;
 
-import static com.homework.task29.Classes.*;
 import static com.homework.task29.Manager.*;
 import static com.homework.task29.Operations.*;
 
 public class Main {
     static BufferedReader bR = new BufferedReader(new InputStreamReader(System.in));
-    static String input;
     public static void main(String[] args) throws IOException {
         System.out.println("To stop program print something, to start(after each action) press enter");
         while (bR.readLine().equals("")) {

@@ -1,29 +1,32 @@
 package com.homework.task29;
 
 public class Book {
-    private final String author;
-    private final String title;
+    private final String name;
+    private final Author author;
     private final String description;
     private final int publishYear;
-    private final String genre;
+    private final Genre genre;
 
-    Book(String bookName, String bookAuthor, String description, int year, String genre) {
+    Book(String bookName, Author bookAuthor, String description, int year, Genre genre) {
         this.author = bookAuthor;
-        this.title = bookName;
+        this.name = bookName;
         this.description = description;
         this.publishYear = year;
         this.genre = genre;
     }
 
+    public String getName() {
+        return name;
+    }
 
     @Override
     public String toString() {
         return "Book{" +
-                "author='" + author + '\'' +
-                ", title='" + title + '\'' +
+                "name='" + name + '\'' +
+                ", author=" + author +
                 ", description='" + description + '\'' +
                 ", publishYear=" + publishYear +
-                ", genre='" + genre + '\'' +
+                ", genre=" + genre +
                 '}';
     }
 }

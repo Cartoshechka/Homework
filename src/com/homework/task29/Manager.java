@@ -16,8 +16,11 @@ public class Manager {
         System.out.println("Print books name");
         String name = bR.readLine();
 
-        System.out.println("Print books author");
-        String author = bR.readLine();
+        System.out.println("Choose books author");
+        getAuthors();
+        System.out.println("Print author number (1 or 2 etc.)");
+        Integer author = Integer.parseInt(bR.readLine());
+        Author author1 = authors.get(author);
 
         System.out.println("Print books description");
         String description = bR.readLine();
@@ -29,14 +32,21 @@ public class Manager {
         } catch (IOException e) {
             System.out.println("Print books year in numbs (like 123)");
         }
-        System.out.println("Print books genre");
-        String genre = null;
+        System.out.println("Choose books genre");
+        getGenres();
+        System.out.println("Print genre number (1 or 2 etc.)");
+        Integer genre = null;
         try {
-            genre = bR.readLine();
+            genre = Integer.parseInt(bR.readLine());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Print author number (1 or 2 etc.)");
+            System.out.println("Try again");
+            genre = Integer.parseInt(bR.readLine());
         }
-        Book book = new Book(name, author, description, year, genre);
+
+        Genre genre1 = genres.get(genre);
+
+        Book book = new Book(name, author1, description, year, genre1);
         books.add(book);
     }
 
@@ -67,92 +77,59 @@ public class Manager {
     }
 
     static void deleteBook() throws IOException {
-        System.out.println("Count of books , size is: " + books.size());
-        System.out.println("Print index");
-        int index = 0;
-        try {
-            index = Integer.parseInt(bR.readLine());
-        } catch (IOException e) {
-            System.out.println("Print index in numbs (like 123)");
-            index = Integer.parseInt(bR.readLine());
-        }
-        try {
-            index = index - 1;
-            books.remove(index);
-        }catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("I remember u that indexing starts with 0 plz include it and try again");
-            System.out.println("Print index");
-            try {
-                index = Integer.parseInt(bR.readLine());
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
+        System.out.println("All books u have:");
+        getBooks();
+        System.out.println("Print books name");
+        String name = bR.readLine();
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).getName().contains(name)){
+                books.remove(i);
             }
         }
     }
 
     static void deleteGenre() throws IOException {
-        System.out.println("Count of genres, size is: " + genres.size());
-        System.out.println("Print index");
-        int index = 0;
-        try {
-            index = Integer.parseInt(bR.readLine());
-        } catch (IOException e) {
-            System.out.println("Print index in numbs (like 123)");
-            index = Integer.parseInt(bR.readLine());
-        }
-        try {
-            index = index -1;
-            genres.remove(index);
-        }catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("I remember u that indexing starts with 0 plz include it and try again");
-            System.out.println("Print index");
-            try {
-                index = Integer.parseInt(bR.readLine());
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
+        System.out.println("All genres u have:");
+        getGenres();
+        System.out.println("Print genres name");
+        String name = bR.readLine();
+        for (int i = 0; i < genres.size(); i++) {
+            if (genres.get(i).getName().contains(name)){
+                genres.remove(i);
             }
         }
     }
 
     static void deleteAuthor() throws IOException {
-        System.out.println("Count of authors, size is: " + authors.size());
-        System.out.println("Print index");
-        int index = 0;
-        try {
-            index = Integer.parseInt(bR.readLine());
-        } catch (IOException e) {
-            System.out.println("Print index in numbs (like 123)");
-            index = Integer.parseInt(bR.readLine());
-        }
-        try {
-            index = index - 1;
-            authors.remove(index);
-        }catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("I remember u that indexing starts with 0 plz include it and try again");
-            System.out.println("Print index");
-            try {
-                index = Integer.parseInt(bR.readLine());
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
+        System.out.println("All authors u have:");
+        getAuthors();
+        System.out.println("Print authors name");
+        String name = bR.readLine();
+        for (int i = 0; i < authors.size(); i++) {
+            if (authors.get(i).getName().contains(name)){
+                authors.remove(i);
             }
         }
     }
 
     static void getBooks() {
-        for (Book book : books) {
-            System.out.println(book);
+        for (int i = 0; i < books.size(); i++) {
+            System.out.println("№ " + i + ": " + books.get(i));
+
         }
     }
 
     static void getGenres() {
-        for (Genre genre : genres) {
-            System.out.println(genre);
+        for (int i = 0; i < genres.size(); i++) {
+            System.out.println("№ " + i + ": " + genres.get(i));
+
         }
     }
 
     static void getAuthors() {
-        for (Author author : authors) {
-            System.out.println(author);
+        for (int i = 0; i < authors.size(); i++) {
+            System.out.println("№ " + i + ": " + authors.get(i));
+
         }
     }
 }
